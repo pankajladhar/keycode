@@ -4,10 +4,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      keyCode: "Press key",
-      key: "---",
-      which:"---",
-      code: "---"
+      keyCode: "Press key"
     };
   }
 
@@ -30,8 +27,8 @@ class App extends Component {
     const { keyCode, key,which, code} = this.state
     return (
       <div className="App">
-        <span className="App__KeyCode">{this.state.keyCode}</span>
-        <div className="Box__Container">
+        <span className="App__KeyCode">{keyCode}</span>
+        {keyCode !== "Press key" && <div className="Box__Container">
           <div className="Box">
             <h2>e.key</h2>
             <span>{key}</span>
@@ -44,7 +41,7 @@ class App extends Component {
             <h2>e.code</h2>
             <span>{code}</span>
           </div>
-        </div>
+        </div>}
       </div>
     );
   }
