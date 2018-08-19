@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly when no key is pressed 1`] = `
+<div
+  className="App"
+>
+  <span
+    className="App__KeyCode"
+  >
+    Press key
+  </span>
+</div>
+`;

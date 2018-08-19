@@ -6,21 +6,20 @@ class App extends Component {
         this.state = {
             keyCode: "Press key"
         };
+        this.setKeyCode = this.setKeyCode.bind(this);
     }
 
     componentDidMount() {
-        document.addEventListener('keydown', (e) => {
-            this.setState({
-                keyCode: e.keyCode,
-                key: e.key,
-                which: e.which,
-                code: e.code
-            })
-        })
+        document.addEventListener('keydown', this.setKeyCode)
     }
 
-    componentWillUnmount() {
-        document.removeEventListener('keydown')
+    setKeyCode(e) {
+        this.setState({
+            keyCode: e.keyCode,
+            key: e.key,
+            which: e.which,
+            code: e.code
+        })
     }
 
     render() {

@@ -1,9 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { mount, shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import App from './../index';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe('App', () => {
+  it('renders correctly when no key is pressed', () => {
+    let tree = renderer.create(<App />);
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('componentDidMount should be called', () => {
+    const methodNameFake = jest.spyOn(App.prototype, 'componentDidMount');
+    const wrapper = mount(<App />);
+    expect(methodNameFake).toHaveBeenCalledTimes(1);
+  })
+
+  it('setKeyCode should set state properly', () => {
+    let component = renderer.create(<App />);
+    const instance = component.getInstance()
+    instance.setKeyCode({
+      keyCode: "keyCode",
+      key: "key",
+      which: "which",
+      code: "code"
+    })
+
+    expect(instance.state.keyCode).toEqual("keyCode")
+    expect(instance.state.key).toEqual("key")
+    expect(instance.state.which).toEqual("which")
+    expect(instance.state.code).toEqual("code")
+  })
+
+})
+
