@@ -1,7 +1,7 @@
 {
-  "name": "react-ow3x78",
-  "description": "",
-  "homepage": "https://stackblitz.com/edit/react-ow3x78",
+  "name": "keycode",
+  "description": "Visualizer for JavaScript keycodes",
+  "homepage": "https://github.com/pankajladhar/keycode/",
   "dependencies": {
     "react": "16.1.1",
     "react-dom": "16.1.1",
