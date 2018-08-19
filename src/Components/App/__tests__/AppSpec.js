@@ -31,5 +31,17 @@ describe('App', () => {
     expect(instance.state.code).toEqual("code")
   })
 
+  it('renders correctly when key is pressed', () => {
+    let component = renderer.create(<App />);
+    const instance = component.getInstance()
+    instance.setKeyCode({
+      keyCode: "keyCode",
+      key: "key",
+      which: "which",
+      code: "code"
+    })
+
+    expect(component.toJSON()).toMatchSnapshot();
+  });
 })
 
